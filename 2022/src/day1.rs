@@ -13,10 +13,7 @@ pub fn run() {
             current += row.parse::<i32>().unwrap();
         });
 
-    if current > 0 {
-        entries.push(current);
-    }
-
+    entries.push(current);
     entries.sort_by(|a, b| b.cmp(a));
 
     println!("------");
