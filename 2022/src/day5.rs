@@ -16,7 +16,7 @@ pub fn run() {
 
     input_str.lines()
         .for_each(|row| {
-            if row.starts_with("[") {
+            if row.contains("[") {
                 parse_boxes(row, &mut map_first_challenge);
             } else if row.is_empty() {
                 for (_, v) in &mut map_first_challenge {

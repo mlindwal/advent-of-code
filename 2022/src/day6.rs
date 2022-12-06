@@ -9,7 +9,7 @@ pub fn run() {
     println!("Day 6 challenge 2: {:?}", find_marker(&input_str, 14));
 }
 
-fn find_marker(input: &String, nr_of_chars: usize) -> usize {
+fn find_marker(input: &String, marker_len: usize) -> usize {
     let mut q = VecDeque::new();
 
     for (idx, chr) in input.chars().enumerate() {
@@ -19,10 +19,11 @@ fn find_marker(input: &String, nr_of_chars: usize) -> usize {
                     break;
                 }
             }
-        } else if q.len() == nr_of_chars {
-            return idx;
         }
         q.push_back(chr);
+        if q.len() == marker_len {
+            return idx + 1;
+        }
     }
     panic!("No marker detected in input: \"{}\"", input)
 }
